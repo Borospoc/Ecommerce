@@ -1,0 +1,15 @@
+{% extends "layoutscartdetail.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="container my-4 " >
+        <h2 align="center" >ลงชื่อเข้าใช้</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{form | crispy}}
+            <input type="submit" class="btn btn-success" value="Login">
+        </form>
+</div>
+
+{% endblock %}
