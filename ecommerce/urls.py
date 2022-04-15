@@ -19,6 +19,7 @@ from django.urls import path
 from store import views
 from django.conf.urls.static import static
 from django.conf import settings
+from django.urls import path, include
 
 
 
@@ -37,7 +38,10 @@ urlpatterns = [
     path('search/',views.search,name="search"),
     path('orderHistory/',views.orderHistory,name="orderHistory"),
     path('order/<int:order_id>',views.viewOrder,name="orderDetails"),
-    path('cart/thankyou',views.thankyou,name='thankyou')
+    path('cart/thankyou',views.thankyou,name='thankyou'),
+    path('checkout/',views.Checkout,name='checkout'),
+    path('accounts/', include('allauth.urls')),
+    path('',views.home, name='home')
 ]
 
 if settings.DEBUG :
